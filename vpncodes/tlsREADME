@@ -24,7 +24,7 @@ and the common name of the certificate is 'ekalirvpnlab.com'.
 To run the client:
 ---------------------------
 
-Since the common name of the server's certificate is 'vpnlabserver.com', 
+Since the common name of the server's certificate is 'ekalirvpnlab.com', 
 the hostname used by the client should match with this common name, or
 the TLS connection will fail (this checking is implemented in the client 
 program).  
