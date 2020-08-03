@@ -17,7 +17,7 @@ To run the server:
 $ ./tlsserver
 
 Note: The server's certificate is ./cert_server/server-cert.pem, 
-and the common name of the certificate is 'vpnlabserver.com'. 
+and the common name of the certificate is 'ekalirvpnlab.com'. 
 
 
 ---------------------------
@@ -29,21 +29,14 @@ the hostname used by the client should match with this common name, or
 the TLS connection will fail (this checking is implemented in the client 
 program).  
 
-First, add the following line to /etc/hosts, so the name 'vpnlabserver.com'
+First, add the following line to /etc/hosts, so the name 'ekalirvpnlab.com'
 is mapped to your server's IP address (server_ip should be replaced by a 
 real IP address):
  
-server_ip     vpnlabserver.com
+server_ip     ekalirvpnlab.com
  
 Now, we can run the client program (our server listens to port 4433):
-$ ./tlsclient vpnlabserver.com  4433
-
-We have put two CA certificates in the ./ca_client folder: one is the 
-CA that signs our server certificate, and the other is the CA that 
-signs Google's certificate. Therefore, we can also use our client to
-talk to Google's HTTPS server:
-
-$ ./tlsclient www.google.com 443
+$ ./tlsclient ekalirvpnlab.com  4433
 
 See the instructions in the lab description if you want to use this client
 program to talk to other HTTPS servers. 
