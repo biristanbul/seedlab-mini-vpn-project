@@ -38,5 +38,3 @@ server_ip     ekalirvpnlab.com
 Now, we can run the client program (our server listens to port 4433):
 $ ./tlsclient ekalirvpnlab.com  4433
 
-See the instructions in the lab description if you want to use this client
-program to talk to other HTTPS servers. 
