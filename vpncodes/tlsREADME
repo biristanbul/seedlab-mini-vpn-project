@@ -1,40 +1,15 @@
-*************************************************
-* tlsserver.c tls server program 
-* tlsclient.c tls client program 
-* cert_server server certificate folder 
-* ca_client   client CA folder
-************************************************
+Run the server:
+sudo ./tlsserver
 
----------------------------
-To compile the compile: 
----------------------------
-$ make 
+Assign IP to VPN SERVER TUN Device:
+sudo ifconfig tun0 192.168.53.1/24 up
 
+Enable ip forwarding:
+sudo sysctl net.ipv4.ip_forward=1
 
----------------------------
-To run the server:
----------------------------
-$ ./tlsserver
+Run the client:
+First change the SERVER_IP in tlsclient.c to match with the server's ip.
+sudo ./tlsclient ekalirvpnlab.com 4433
 
-Note: The server's certificate is ./cert_server/server-cert.pem, 
-and the common name of the certificate is 'ekalirvpnlab.com'. 
-
-
----------------------------
-To run the client:
----------------------------
-
-Since the common name of the server's certificate is 'ekalirvpnlab.com', 
-the hostname used by the client should match with this common name, or
-the TLS connection will fail (this checking is implemented in the client 
-program).  
-
-First, add the following line to /etc/hosts, so the name 'ekalirvpnlab.com'
-is mapped to your server's IP address (server_ip should be replaced by a 
-real IP address):
- 
-server_ip     ekalirvpnlab.com
- 
-Now, we can run the client program (our server listens to port 4433):
-$ ./tlsclient ekalirvpnlab.com  4433
-
+Note:
+You also need to configure the TUN interface server side, client side is configured automatically and set up routings. See the lab description for instructions.
